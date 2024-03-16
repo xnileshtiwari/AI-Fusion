@@ -6,7 +6,18 @@ import mysql.connector
 from streamlit_option_menu import option_menu
 import base64
 from PIL import Image
+from dotenv import load_dotenv
 import io
+
+load_dotenv()
+
+# Access database credentials
+db_host = os.getenv("DB_HOST")
+db_user = os.getenv("DB_USER")
+db_password = os.getenv("DB_PASSWORD")
+db_name = os.getenv("DB_NAME")
+
+
 
 if st.session_state.get('switch_button', False):
     st.session_state['menu_option'] = (st.session_state.get('menu_option', 1))
@@ -45,10 +56,10 @@ if selected == 'Home':
     # Connect to MySQL database
     def connect_to_db():
         return mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="Kali9335nil",
-            database="fibase"
+            host=db_host,
+            user=db_user,
+            password=db_password,
+            database=db_name
         )
 
     # Retrieve image data from the database
@@ -131,10 +142,10 @@ if selected == 'Chat':
 
 
         mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="Kali9335nil",
-        database="fibase"
+        host=db_host,
+        user=db_user,
+        password=db_password,
+        database=db_name
         )
 
 
@@ -248,10 +259,10 @@ if selected == 'Create':
 
     # Connect to the database
     mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="Kali9335nil",
-    database="fibase"
+    host=db_host,
+    user=db_user,
+    password=db_password,
+    database=db_name
     )
 
 
