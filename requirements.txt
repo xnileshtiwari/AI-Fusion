@@ -1,0 +1,4 @@
+google-generativeai
+base64
+mysql.connector
+load_dotenv
